@@ -21,20 +21,24 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(){
     this.notifications = this.notificationService.retriveMessages();
-    setTimeout(()=>{
-      this.notifications = [];
-    }, 5000);
 
     this.notificationService.newMessageAdded.subscribe(
       data => {
-        if(this.router.url == '/dashboard'){
+          console.log('event caught');
           this.notifications = this.notificationService.retriveMessages();
+          console.log(this.notifications);
           // setTimeout(() => {
           //   //this.notifications = [];
           //   this.notifications.push('inca una');
           //   this.notifications = [];
           // }, 5000);
-        }
+        
+      }
+    );
+
+    this.notificationService.deleteMessage.subscribe(
+      data => {
+        this.notifications = this.notificationService.retriveMessages();
       }
     );
   }

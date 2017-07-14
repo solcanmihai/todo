@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { NotificationsService } from '../notifications.service';
+
 @Component({
     selector: 'app-notification',
     templateUrl: './notification.component.html',
@@ -9,14 +11,10 @@ export class NotificationComponent implements OnInit{
     @Input() delay: number;
     afisat = true;
 
-    //Set display property to false
-    eraseNotification(): void{
-        this.afisat = false;
-    }
+    constructor(private notificationService: NotificationsService) {}
 
     //La initializare, dupa timpul specificat, sterge componenta
     ngOnInit()
     {
-        setTimeout(() => this.eraseNotification(), this.delay);
     }
 }
