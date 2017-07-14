@@ -1,4 +1,25 @@
 <div class="container">
-  <app-notification [delay]="customDelayTime">Welcome to the todo list. This is a notification that will disappear after {{customDelayTime / 1000}} seconds </app-notification>
-  <a routerLink="/todo" class="btn btn-primary btn-lg">Go to todo list</a>
+  <div *ngFor="let notification of notifications">
+    <app-notification [delay]="5000"> {{notification}} </app-notification>
+  </div>
+  <div class="jumbotron">
+    <h1>Welcome to the most awesome todo app ever!!</h1>
+    <h2>Start exploring the app by clicking the button bellow</h2>
+    <div class="row">
+      <div class="col-md-12">
+        <a routerLink="/todo" class="btn btn-primary btn-lg btn-block">Go to todo list</a>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4" *ngIf="authService.isLoggedIn() == false">
+        <a class="btn btn-primary btn-lg btn-block" routerLink="/login">Login</a>
+      </div>
+      <div class="col-md-4 col-md-offset-4" *ngIf="authService.isLoggedIn() == true">
+        <a class="btn btn-primary btn-lg btn-block" (click)="logoutDashboard()">Logout</a>
+      </div>
+    </div>
+  </div>
+
+
 </div>

@@ -17,6 +17,9 @@ import { appRoutes } from './app.routes';
 import { TodoService } from './todo-list/todo.service';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthGuard } from './auth.guard';
+import { AuthService } from './auth.service';
+import { NotificationsService } from './notifications.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [TodoService],
+  providers: [
+    TodoService, 
+    AuthGuard,
+    AuthService,
+    NotificationsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

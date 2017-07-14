@@ -10,9 +10,11 @@ import { AddItemComponent } from './todo-list/add-item/add-item.component';
 import { NotificationComponent } from './notification/notification.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthGuard } from './auth.guard';
 
 export const appRoutes: Routes = 
 [
+    
     {
         path: 'dashboard',
         component: DashboardComponent
@@ -20,6 +22,7 @@ export const appRoutes: Routes =
     {
         path: 'todo',
         component: TodoListComponent
+        ,canActivate: [AuthGuard]
     },
     {
         path: 'login',
