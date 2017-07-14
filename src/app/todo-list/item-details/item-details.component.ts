@@ -18,15 +18,22 @@ export class ItemDetailsComponent implements OnInit {
     this.selectedItem = this.todoService.getSelectedItem();
   }
 
+  closeWindow(): void{
+    this.selectedItem = null;
+    this.todoService.setSelectedItem(null);
+  }
+
+  deleteItem(): void{
+    this.todoService.setSelectedItem(null);
+    this.todoService.eraseItem(this.selectedItem);
+    this.selectedItem = null;
+  }
+
   ngOnInit(){
     this.todoService.pushSelectedItemLocal.subscribe(
       data => {
         this.selectedItem = this.todoService.getSelectedItem();
       }
     );
-  }
-
-  handleClickEvent(): void{
-    console.log('eventul ajunge in componenta');
   }
 }

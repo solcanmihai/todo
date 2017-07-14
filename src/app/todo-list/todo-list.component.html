@@ -2,7 +2,8 @@
   <div class="row">
     <div class="col-md-6">
         <app-list></app-list>
-        <app-add-item></app-add-item>
+        <button class="btn btn-success" (click)="toggleAddItem()" >Add more items</button>
+        <app-add-item *ngIf="showAddItem"></app-add-item>
     </div>
     <div class="col-md-6">
       <app-item-details></app-item-details>

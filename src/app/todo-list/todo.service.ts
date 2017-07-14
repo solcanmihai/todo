@@ -24,6 +24,13 @@ export class TodoService{
     this.items = ITEMS;
   }
 
+  eraseItem(x: TodoItem): void{
+    let poz: number = this.items.indexOf(x);
+    if(poz !== -1){
+      this.items.splice(poz, 1);
+    }
+  }
+
   getItems(): TodoItem[]{
       return this.items;
   }
