@@ -16,12 +16,14 @@ const ITEMS: TodoItem[] = [
 export class TodoService{
   private items: TodoItem[];
   private selectedItem: TodoItem;
+  private currentId: number;
   
   pushSelectedItemLocal = new EventEmitter<TodoItem>();
 
   constructor()
   {
     this.items = ITEMS;
+    this.currentId = this.items.length + 1;
   }
 
   eraseItem(x: TodoItem): void{
@@ -29,6 +31,11 @@ export class TodoService{
     if(poz !== -1){
       this.items.splice(poz, 1);
     }
+  }
+
+  addItem(title: string, description: string): void{
+    this.items.push(new TodoItem(this.currentId, title, description));
+    this.currentId++;
   }
 
   getItems(): TodoItem[]{

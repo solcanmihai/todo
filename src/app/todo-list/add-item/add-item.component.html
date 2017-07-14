@@ -1,11 +1,11 @@
-<form action="" class="form-inline">
-  <button type="submit" class="btn btn-primary">Add item</button>
+<form action="">
   <div class="form-group">
     <label for="add-item-name">Name: </label>
-    <input type="text" id="add-item-name">
+    <input type="text" id="add-item-name" #newItemName>
   </div>
   <div class="form-group">
     <label for="add-item-description">Description: </label>
-    <input type="text" id="add-item-description">
+    <input type="text" id="add-item-description" #newItemDescription>
   </div>
+  <button (click)="addNewItem(newItemName.value, newItemDescription.value)" class="btn btn-primary">Add item</button>
 </form>

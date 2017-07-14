@@ -3,6 +3,6 @@ ul{
     padding: none;
 }
 
-li:hover{
+.one-item:hover{
     background-color: lightgray;
 }

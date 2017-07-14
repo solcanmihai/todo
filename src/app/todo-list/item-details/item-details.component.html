@@ -1,8 +1,8 @@
 <div class="container" *ngIf="selectedItem">
   <h3> {{selectedItem.id}} -- {{selectedItem.title}} </h3>
-  <div class="container">
+  <div class="jumbotron">
     {{selectedItem.description}}
   </div>
-  <button (click)="closeWindow()">Close</button>
-  <button (click)="deleteItem()">Delete</button>
+  <button (click)="closeWindow()" class="btn btn-warning">Close</button>
+  <button (click)="deleteItem()" class="btn btn-danger">Delete</button>
 </div>

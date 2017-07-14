@@ -1,4 +1,4 @@
 <h1>To do list items:</h1>
 <ul class="list-group">
-  <li *ngFor="let item of todoThings" class="list-group-item"> <app-list-item [currentItem]="item"></app-list-item></li>
+  <div *ngFor="let item of todoThings" class="list-group-item one-item"><app-list-item [currentItem]="item"></app-list-item></div>
 </ul>
