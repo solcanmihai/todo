@@ -2,7 +2,8 @@ import { Injectable, OnInit, EventEmitter } from '@angular/core';
 
 import { TodoItem } from '../todo-item';
 
-const ITEMS: TodoItem[] = [
+const ITEMS: TodoItem[] 
+= [
   {id: 1, title: 'Spala vasele', description: 'Nu ai auzit?'},
   {id: 2, title: 'Spala vasele acum', description: 'Nu ai auzit? Chiar trebuie sa ma repet?'},
   {id: 3, title: 'Spala vasele a', description: 'Nu ai auzit?'},
@@ -20,10 +21,17 @@ export class TodoService{
   
   pushSelectedItemLocal = new EventEmitter<TodoItem>();
 
+  updateStorage(): void{
+    localStorage.setItem('todo-items', JSON.stringify(this.items));
+    localStorage.setItem('todo-id', String(this.currentId));
+  }
+
   constructor()
   {
-    this.items = ITEMS;
-    this.currentId = this.items.length + 1;
+    //this.items = ITEMS;
+    this.items = JSON.parse(localStorage.getItem('todo-items'));
+    this.currentId = JSON.parse(localStorage.getItem('todo-id'));
+    //this.updateStorage();
   }
 
   eraseItem(x: TodoItem): void{
@@ -31,11 +39,13 @@ export class TodoService{
     if(poz !== -1){
       this.items.splice(poz, 1);
     }
+    this.updateStorage();
   }
 
   addItem(title: string, description: string): void{
     this.items.push(new TodoItem(this.currentId, title, description));
     this.currentId++;
+    this.updateStorage();
   }
 
   getItems(): TodoItem[]{
