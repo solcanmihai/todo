@@ -15,6 +15,8 @@ import { NotificationComponent } from './notification/notification.component';
 import { appRoutes } from './app.routes';
 
 import { TodoService } from './todo-list/todo.service';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { TodoService } from './todo-list/todo.service';
       ListItemComponent,
       ItemDetailsComponent,
       AddItemComponent,
-      NotificationComponent
+      NotificationComponent,
+      LoginFormComponent,
+      PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

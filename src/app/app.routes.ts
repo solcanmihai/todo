@@ -8,6 +8,8 @@ import { ListItemComponent } from './todo-list/list/list-item/list-item.componen
 import { ItemDetailsComponent } from './todo-list/item-details/item-details.component';
 import { AddItemComponent } from './todo-list/add-item/add-item.component';
 import { NotificationComponent } from './notification/notification.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 export const appRoutes: Routes = 
 [
@@ -20,8 +22,16 @@ export const appRoutes: Routes =
         component: TodoListComponent
     },
     {
+        path: 'login',
+        component: LoginFormComponent
+    },
+    {
         path: '',
         redirectTo: '/dashboard',
         pathMatch: 'full'
+    },
+    {
+        path: '**',
+        component: PageNotFoundComponent
     }
 ]
