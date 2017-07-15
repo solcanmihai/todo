@@ -2,17 +2,6 @@ import { Injectable, OnInit, EventEmitter } from '@angular/core';
 
 import { TodoItem } from '../todo-item';
 
-const ITEMS: TodoItem[] 
-= [
-  {id: 1, title: 'Spala vasele', description: 'Nu ai auzit?'},
-  {id: 2, title: 'Spala vasele acum', description: 'Nu ai auzit? Chiar trebuie sa ma repet?'},
-  {id: 3, title: 'Spala vasele a', description: 'Nu ai auzit?'},
-  {id: 4, title: 'Spala vasele 2', description: 'Nu ai auzit?'},
-  {id: 5, title: 'Spala vasele fdsjfkds', description: 'Nu ai auzit?'},
-  {id: 6, title: 'Spala vaselefdf', description: 'Nu ai auzit?'},
-  {id: 7, title: 'Spala vasele more lorem ipsum', description: 'Nu ai auzit?'}
-];
-
 @Injectable()
 export class TodoService{
   private items: TodoItem[];

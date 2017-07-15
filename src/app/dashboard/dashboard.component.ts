@@ -47,4 +47,8 @@ export class DashboardComponent implements OnInit {
     this.authService.logout();
     this.router.navigateByUrl("/");
   }
+
+  isLoggedIn(): boolean{
+    return this.authService.isLoggedIn();
+  }
 }
