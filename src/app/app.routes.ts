@@ -1,5 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
 
+// Modules
 import { AppComponent} from './app.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -10,7 +11,10 @@ import { AddItemComponent } from './todo-list/add-item/add-item.component';
 import { NotificationComponent } from './notification/notification.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 import { AuthGuard } from './auth.guard';
+
 
 export const appRoutes: Routes = 
 [
@@ -26,6 +30,10 @@ export const appRoutes: Routes =
             {
                 path: 'todo',
                 component: TodoListComponent
+            },
+            {
+                path: 'dashboard',
+                component: DashboardComponent
             }
         ]
 

@@ -7,8 +7,21 @@ export class AuthService {
 
   constructor(
     private router: Router
-  ) { 
-    this.isLoggedInProperty = false;
+  ) 
+  { 
+    if(sessionStorage.getItem('isLoggedIn') == null){
+      sessionStorage.setItem('isLoggedIn', 'false');
+    }
+    else{
+      if(sessionStorage.getItem('isLoggedIn') == 'true'){
+        this.isLoggedInProperty = true;
+      }
+      else if(sessionStorage.getItem('isLoggedIn') == 'false'){
+        this.isLoggedInProperty = false;
+      }
+    }
+
+    //this.isLoggedInProperty = false;
   }
 
   isLoggedIn(): boolean{
@@ -16,11 +29,13 @@ export class AuthService {
   }
 
   login(user: string, passwordHash: string): void{
+    sessionStorage.setItem('isLoggedIn', 'true');
     this.isLoggedInProperty = true;
     this.router.navigateByUrl('/todo');
   }
 
   logout(): void{
+    sessionStorage.setItem('isLoggedIn', 'false');
     this.isLoggedInProperty = false;
     this.router.navigateByUrl('/');
   }

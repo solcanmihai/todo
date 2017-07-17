@@ -15,9 +15,11 @@ import { appRoutes } from './app.routes';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
+// Modules
 import { WelcomeModule } from './welcome/welcome.module'
 import { ServicesModule } from './services.module';
 import { NavbarComponent } from './navbar/navbar.component';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
   imports: [
@@ -25,7 +27,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     FormsModule,
     RouterModule.forRoot(appRoutes),
     WelcomeModule,
-    ServicesModule
+    ServicesModule,
+    DashboardModule
   ],
   declarations: [
       AppComponent,
