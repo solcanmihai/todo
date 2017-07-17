@@ -14,6 +14,7 @@ export class NotificationsService {
 
   addMessage(message: string): void{
     if(this.messages.length >= 1){
+      console.log('Message not addded. There was already one message there');
       return;
     }
 

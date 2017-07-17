@@ -14,12 +14,13 @@ export class AuthGuard implements CanActivate {
   ) {}
 
   canActivate(){
+    console.log('guard reached');
+
     let isAuthenticated = this.authService.isLoggedIn();
 
     if(isAuthenticated == false)
     {
       this.notificationsService.addMessage('You must be logged in to access that page');
-      console.log('guard reached');
 
       // not the best thing to do.. The only way I found to refresh dashboard
       // this.router.navigateByUrl('/login');

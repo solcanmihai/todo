@@ -14,24 +14,29 @@ import { AuthGuard } from './auth.guard';
 
 export const appRoutes: Routes = 
 [
-    
+    {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: '/dashboard'
+    },
+    {
+        path: '',
+        canActivate: [AuthGuard],
+        children: [
+            {
+                path: 'todo',
+                component: TodoListComponent
+            }
+        ]
+
+    },
     {
         path: 'dashboard',
         component: DashboardComponent
     },
     {
-        path: 'todo',
-        component: TodoListComponent
-        ,canActivate: [AuthGuard]
-    },
-    {
         path: 'login',
         component: LoginFormComponent
-    },
-    {
-        path: '',
-        redirectTo: '/dashboard',
-        pathMatch: 'full'
     },
     {
         path: '**',

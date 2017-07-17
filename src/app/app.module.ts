@@ -5,45 +5,42 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent} from './app.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+//import { DashboardComponent } from './dashboard/dashboard.component';
 import { ListComponent } from './todo-list/list/list.component';
 import { ListItemComponent } from './todo-list/list/list-item/list-item.component';
 import { ItemDetailsComponent } from './todo-list/item-details/item-details.component';
 import { AddItemComponent } from './todo-list/add-item/add-item.component';
-import { NotificationComponent } from './notification/notification.component';
 
 import { appRoutes } from './app.routes';
 
-import { TodoService } from './todo-list/todo.service';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { AuthGuard } from './auth.guard';
-import { AuthService } from './auth.service';
-import { NotificationsService } from './notifications.service';
+
+import { DashboardModule } from './dashboard/dashboard.module'
+import { ServicesModule } from './services.module';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot(appRoutes),
+    DashboardModule,
+    ServicesModule
+  ],
   declarations: [
       AppComponent,
       TodoListComponent,
-      DashboardComponent,
       ListComponent,
       ListItemComponent,
       ItemDetailsComponent,
       AddItemComponent,
-      NotificationComponent,
       LoginFormComponent,
-      PageNotFoundComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    RouterModule.forRoot(appRoutes)
+      PageNotFoundComponent,
+      NavbarComponent
   ],
   providers: [
-    TodoService, 
-    AuthGuard,
-    AuthService,
-    NotificationsService
+
   ],
   bootstrap: [AppComponent]
 })
