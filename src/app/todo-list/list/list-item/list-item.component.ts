@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter} from '@angular/core';
 
-import { TodoItem } from '../../../todo-item';
+import { TodoItem } from '../../todo-item';
 
 import { TodoService } from '../../todo.service';
 

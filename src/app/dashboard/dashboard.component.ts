@@ -1,58 +1,15 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { RouterModule, Router } from '@angular/router';
-
-import { AuthService } from '../auth.service';
-import { NotificationsService } from '../notifications.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit, OnDestroy {
-  customDelayTime: number = 5000;
-  notifications: string[];
+export class DashboardComponent implements OnInit {
 
-  constructor(
-    protected authService: AuthService,
-    private router: Router,
-    private notificationService: NotificationsService
-  ) { }
+  constructor() { }
 
-  isLoggedIn(): boolean{
-    return this.authService.isLoggedIn();
+  ngOnInit() {
   }
 
-  logout(): void{
-    this.authService.logout();
-  }
-
-  ngOnDestroy(){
-    this.notificationService.clear();
-    console.log('notifications cleared in dashboard component');
-  }
-
-  ngOnInit(){
-    this.notifications = this.notificationService.retriveMessages();          
-
-    this.notificationService.newMessageAdded.subscribe(
-      data => {
-          console.log('event caught');
-          this.notifications = this.notificationService.retriveMessages();          
-          // setTimeout(() => {
-          //   //this.notifications = [];
-          //   this.notifications.push('inca una');
-          //   this.notifications = [];
-          // }, 5000);
-      }
-    );
-
-    this.notificationService.deleteMessage.subscribe(
-      data => {
-        //this.notifications = this.notificationService.retriveMessages();
-        this.notifications = this.notificationService.retriveMessages();          
-        console.log('delete event!!!! <----------');
-      }
-    );
-  }
 }

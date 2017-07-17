@@ -1,6 +1,6 @@
 import { Injectable, OnInit, EventEmitter } from '@angular/core';
 
-import { TodoItem } from '../todo-item';
+import { TodoItem } from './todo-item';
 
 @Injectable()
 export class TodoService{

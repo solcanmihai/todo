@@ -2,7 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent} from './app.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 import { ListComponent } from './todo-list/list/list.component';
 import { ListItemComponent } from './todo-list/list/list-item/list-item.component';
 import { ItemDetailsComponent } from './todo-list/item-details/item-details.component';
@@ -17,7 +17,7 @@ export const appRoutes: Routes =
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: '/dashboard'
+        redirectTo: '/welcome'
     },
     {
         path: '',
@@ -31,8 +31,8 @@ export const appRoutes: Routes =
 
     },
     {
-        path: 'dashboard',
-        component: DashboardComponent
+        path: 'welcome',
+        component: WelcomeComponent
     },
     {
         path: 'login',

@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent} from './app.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
-//import { DashboardComponent } from './dashboard/dashboard.component';
 import { ListComponent } from './todo-list/list/list.component';
 import { ListItemComponent } from './todo-list/list/list-item/list-item.component';
 import { ItemDetailsComponent } from './todo-list/item-details/item-details.component';
@@ -16,7 +15,7 @@ import { appRoutes } from './app.routes';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
-import { DashboardModule } from './dashboard/dashboard.module'
+import { WelcomeModule } from './welcome/welcome.module'
 import { ServicesModule } from './services.module';
 import { NavbarComponent } from './navbar/navbar.component';
 
@@ -25,7 +24,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    DashboardModule,
+    WelcomeModule,
     ServicesModule
   ],
   declarations: [
