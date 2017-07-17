@@ -14,10 +14,18 @@ export class DashboardComponent implements OnInit {
   notifications: string[];
 
   constructor(
-    private authService: AuthService,
+    protected authService: AuthService,
     private router: Router,
     private notificationService: NotificationsService
   ) { }
+
+  isLoggedIn(): boolean{
+    return this.authService.isLoggedIn();
+  }
+
+  logout(): void{
+    this.authService.logout();
+  }
 
   ngOnInit(){
     this.notifications = this.notificationService.retriveMessages();

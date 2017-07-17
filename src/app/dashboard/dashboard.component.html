@@ -12,11 +12,11 @@
     </div>
     <hr>
     <div class="row">
-      <div class="col-md-4 col-md-offset-4" *ngIf="this.authService.isLoggedIn() == false">
+      <div class="col-md-4 col-md-offset-4" *ngIf="isLoggedIn() == false">
         <a class="btn btn-primary btn-lg btn-block" routerLink="/login">Login</a>
       </div>
-      <div class="col-md-4 col-md-offset-4" *ngIf="this.authService.isLoggedIn() == true">
-        <a class="btn btn-primary btn-lg btn-block" (click)="this.authService.logout()">Logout</a>
+      <div class="col-md-4 col-md-offset-4" *ngIf="isLoggedIn() == true">
+        <a class="btn btn-primary btn-lg btn-block" (click)="logout()">Logout</a>
       </div>
     </div>
   </div>

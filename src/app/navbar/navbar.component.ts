@@ -12,4 +12,12 @@ export class NavbarComponent {
   constructor(
     private authService: AuthService
   ) { }
+
+  isLoggedIn(): boolean{
+    return this.authService.isLoggedIn();
+  }
+
+  logout(): void{
+    this.authService.logout();
+  }
 }
