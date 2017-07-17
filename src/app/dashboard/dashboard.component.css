@@ -1,0 +1,11 @@
+.list-group-item:hover{
+    background-color: lightgray;
+}
+
+.list-group-item h4{
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+}

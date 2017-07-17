@@ -20,8 +20,6 @@ export class AuthService {
         this.isLoggedInProperty = false;
       }
     }
-
-    //this.isLoggedInProperty = false;
   }
 
   isLoggedIn(): boolean{
@@ -31,7 +29,7 @@ export class AuthService {
   login(user: string, passwordHash: string): void{
     sessionStorage.setItem('isLoggedIn', 'true');
     this.isLoggedInProperty = true;
-    this.router.navigateByUrl('/todo');
+    this.router.navigateByUrl('/dashboard');
   }
 
   logout(): void{
