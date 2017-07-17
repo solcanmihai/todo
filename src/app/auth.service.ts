@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
   private isLoggedInProperty: boolean;
 
-  constructor() { 
+  constructor(
+    private router: Router
+  ) { 
     this.isLoggedInProperty = false;
   }
 
@@ -14,10 +17,12 @@ export class AuthService {
 
   login(user: string, passwordHash: string): void{
     this.isLoggedInProperty = true;
+    this.router.navigateByUrl('/todo');
   }
 
   logout(): void{
     this.isLoggedInProperty = false;
+    this.router.navigateByUrl('/');
   }
 
 }

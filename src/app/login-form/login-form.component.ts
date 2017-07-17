@@ -20,6 +20,5 @@ export class LoginFormComponent {
 
   handleLogin(username: string, password: string): void{
     this.authService.login(username, password);
-    this.router.navigateByUrl('/');
   }
 }

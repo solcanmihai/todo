@@ -9,7 +9,8 @@
                 <li><a routerLink="/todo">Todo list</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a routerLink="/login">Login</a></li>
+                <li *ngIf="this.authService.isLoggedIn() == false"><a routerLink="/login">Login</a></li>
+                <li *ngIf="this.authService.isLoggedIn() == true" (click)="this.authService.logout()" ><a>Logout</a></li>
             </ul>
         </div>
     </div>
