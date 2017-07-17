@@ -9,7 +9,7 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 })
 export class JokesGeneratorComponent implements OnInit {
 
-  private message: string;
+  message: string;
 
   constructor(
     private http: Http
