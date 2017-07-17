@@ -12,6 +12,8 @@ import { NotificationComponent } from './notification/notification.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { SentimentAnalyserComponent } from './sentiment-analyser/sentiment-analyser.component';
+import { JokesGeneratorComponent } from './jokes-generator/jokes-generator.component';
 
 import { AuthGuard } from './auth.guard';
 
@@ -34,6 +36,14 @@ export const appRoutes: Routes =
             {
                 path: 'dashboard',
                 component: DashboardComponent
+            },
+            {
+                path: 'sentiment-analyser',
+                component: SentimentAnalyserComponent
+            },
+            {
+                path: 'jokes-generator',
+                component: JokesGeneratorComponent
             }
         ]
 

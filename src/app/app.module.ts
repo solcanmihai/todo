@@ -20,6 +20,8 @@ import { WelcomeModule } from './welcome/welcome.module'
 import { ServicesModule } from './services.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { SentimentAnalyserModule } from './sentiment-analyser/sentiment-analyser.module';
+import { JokesGeneratorModule } from './jokes-generator/jokes-generator.module';
 
 @NgModule({
   imports: [
@@ -28,7 +30,9 @@ import { DashboardModule } from './dashboard/dashboard.module';
     RouterModule.forRoot(appRoutes),
     WelcomeModule,
     ServicesModule,
-    DashboardModule
+    DashboardModule,
+    SentimentAnalyserModule,
+    JokesGeneratorModule
   ],
   declarations: [
       AppComponent,

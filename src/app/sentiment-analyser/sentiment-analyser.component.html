@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="jumbotron">
+        <h1>Sentiment analyser</h1>
+
+        <form action="">
+            <div class="form-group">
+                <label for="">Enter some text to be analysed</label>
+                <input type="text" class="form-control" #messagex name="messagex">
+                <p (click)="handleInput(messagex.value)" class="btn btn-primary">Analyse</p>
+            </div>
+        </form>
+        
+        <div *ngIf="message != ''" class="well well-lg">
+            {{message}}
+        </div>
+    </div>
+</div>
