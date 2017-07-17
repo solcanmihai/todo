@@ -8,7 +8,6 @@ import { NotificationsService } from '../notifications.service';
     styleUrls: ['./notification.component.css']
 })
 export class NotificationComponent implements OnInit{
-    @Input() delay: number;
     afisat = true;
 
     constructor(private notificationService: NotificationsService) {}

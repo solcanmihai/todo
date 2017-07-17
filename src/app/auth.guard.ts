@@ -22,6 +22,7 @@ export class AuthGuard implements CanActivate {
     {
       this.notificationsService.addMessage('You must be logged in to access that page');
 
+      
       // not the best thing to do.. The only way I found to refresh dashboard
       // this.router.navigateByUrl('/login');
       // setTimeout(() => this.router.navigateByUrl('/dashboard'), 1);

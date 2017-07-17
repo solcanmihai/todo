@@ -4,35 +4,54 @@ import { Router } from '@angular/router';
 @Injectable()
 export class NotificationsService {
   private messages: string[];
+  private buffer: number;
 
   @Output() newMessageAdded = new EventEmitter();
   @Output() deleteMessage = new EventEmitter();
 
   constructor(private router: Router) {
     this.messages = [];  
+    this.buffer = 0;
+    console.log('!!!clear!!!');
+  }
+
+  clear(): void{
+    this.messages = [];
+    this.deleteMessage.emit();
+    console.log('!!!clear!!!');
   }
 
   addMessage(message: string): void{
+    this.buffer++;
+
     if(this.messages.length >= 1){
-      console.log('Message not addded. There was already one message there');
-      return;
+      this.messages = [];
     }
 
     this.messages.push(message);
     this.newMessageAdded.emit();
-    console.log('event emited');
 
-    setTimeout(() => {
-      this.deleteMessage.emit();
-      this.messages.splice(this.messages.indexOf(message));
-    }, 5000);
+    console.log('a message has just been added, and the added event was emited');
 
     this.router.navigateByUrl('/');
+
+    setTimeout(() => {
+      // if(this.messages == []){
+      //   console.log('!!!mesaje goale!!!');
+      //   return;
+      // }
+      if(this.buffer == 1){
+        this.deleteMessage.emit();
+        console.log('delete message event emited');
+        this.messages.splice(this.messages.indexOf(message));
+      }
+      this.buffer--;
+      
+    }, 5000);
   }
 
   retriveMessages(): string[]{
-    let toBeSent: string[] = this.messages;
-    return toBeSent;
+    return this.messages;
   }
 
 }
